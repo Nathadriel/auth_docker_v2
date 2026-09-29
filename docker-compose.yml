@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3002:3000"
+    environment:
+      - JWT_SECRET=${JWT_SECRET:-change-this-secret-in-production}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-15m}
+      - NODE_ENV=development
+    restart: unless-stopped
